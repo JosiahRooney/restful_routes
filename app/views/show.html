@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block title %}Semi-RESTful Routes | Show{% endblock %}
+{% block main_wrap %}
+    <h1>{{product.name}}</h1>
+    <p>Description: {{product.description}}</p>
+    <p>Price: ${{"%.2f" % product.price}}</p>
+    <a href="/">Back</a>
+{% endblock %}

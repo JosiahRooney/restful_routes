@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}Edit/Add{% endblock %}
+{% block main_wrap %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p class="{{category}}">{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% if edit %}
+        <h1>Edit Product</h1>
+        <form action="/product/{{product.product_id}}/edit/process" method="POST">
+            <p><input type="text" name="product_name" value="{{product.name}}" placeholder="Product Name"></p>
+            <p><textarea name="product_description" placeholder="Product Description">{{product.description}}</textarea></p>
+            <p><input type="text" name="product_price" value="{{product.price}}" placeholder="Product Price"></p>
+            <p><a href="/"><button type="button">Back</button></a><button type="submit">Save</button></p>
+        </form>
+    {% endif %}
+    {% if add %}
+        <h1>Add Product</h1>
+        <form action="/product/add/process" method="POST">
+            <p><input type="text" name="product_name" placeholder="Product Name"></p>
+            <p><textarea name="product_description" placeholder="Product Description"></textarea></p>
+            <p><input type="text" name="product_price" placeholder="Product Price"></p>
+            <p><a href="/"><button type="button">Back</button></a><button type="submit">Add</button></p>
+        </form>
+    {% endif %}
+{% endblock %}

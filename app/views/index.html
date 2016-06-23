@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block title %}Semi-restful Routes{% endblock %}
+{% block main_wrap %}
+    <h1>Products</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p class="{{category}}">{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+        {% if products %}
+            {% for product in products %}
+                <tr>
+                    <td><a href="/product/{{product.product_id}}/show">{{product.name}}</a></td>
+                    {% if product.description|length > 40 %}
+                        <td>{{product.description[:40]}}...</td>
+                    {% else %}
+                        <td>{{product.description}}</td>
+                    {% endif %}
+                    <td>${{"%.2f" % product.price}}</td>
+                    <td>
+                        <a href="/product/{{product.product_id}}/show">Show</a>
+                        <a href="/product/{{product.product_id}}/edit">Edit</a>
+                        <a href="/product/{{product.product_id}}/delete" onclick="return confirm('Are you sure?');">
+                            Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+    <a href="/product/add" class="new_product"><button>Add New Product +</button></a>
+{% endblock %}

@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+.main_wrap {
+    width: 1000px;
+    margin: auto;
+}
+
+table {
+    border: 1px solid;
+    width: 100%;
+}
+
+input,
+button,
+textarea {
+    padding: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 60%;
+}
+
+textarea {
+    height: 160px;
+}
+
+button {
+    width: 15%;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    background-color: #0a0;
+    color: white;
+    width: 45%;
+}
+
+.error {
+    background-color: #a00;
+    color: white;
+    font-size: 1.3rem;
+    padding: 10px;
+}
+
+.success {
+    background-color: #0a0;
+    color: white;
+    font-size: 1.3rem;
+    padding: 10px;
+}
+
+th {
+    text-align: left;
+}
+
+th,
+td {
+    padding: 3px;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+    text-align: right;
+}
+
+th:last-child,
+td:last-child:not(:first-child) {
+    text-align: center;
+}
+
+.new_product button {
+    width: 50%;
+    background-color: #05a;
+    color: white;
+    margin-top: 20px;
+}
+
+tr:nth-child(odd) {
+    background-color: rgba(0,0,0,0.1);
+}
